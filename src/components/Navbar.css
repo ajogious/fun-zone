@@ -1,0 +1,85 @@
+/* Base Customization */
+.custom-navbar {
+  background: linear-gradient(90deg, #1e1e2f, #222233);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-brand {
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #ffcc00 !important;
+}
+
+.nav-link {
+  color: #fff !important;
+  transition: color 0.3s, transform 0.2s;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: #ffcc00 !important;
+  transform: scale(1.05);
+}
+
+/* Animated Hamburger */
+.custom-toggler {
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.toggler-icon {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  display: block;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.toggler-icon::before,
+.toggler-icon::after {
+  content: "";
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.toggler-icon::before {
+  top: -8px;
+}
+
+.toggler-icon::after {
+  top: 8px;
+}
+
+.toggler-icon.open {
+  background-color: transparent;
+}
+
+.toggler-icon.open::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.toggler-icon.open::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* Mobile nav styling */
+.mobile-nav {
+  overflow: hidden;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: #222;
+}
+
+.mobile-nav .nav-link {
+  padding: 0.8rem;
+  border-bottom: 1px solid #333;
+}

@@ -1,0 +1,18 @@
+.custom-footer {
+  background: linear-gradient(90deg, #1e1e2f, #222233);
+  color: #fff;
+  padding: 1.5rem 0;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
+  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
+  transition: background 0.3s;
+}
+
+.custom-footer small {
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+
+.custom-footer small:hover {
+  opacity: 1;
+}
