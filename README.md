@@ -6,12 +6,6 @@ This site provides park visitors and potential business partners with all the es
 
 ---
 
-## 🌐 Live Demo
-
-> _Coming Soon_ – Deployed via Vercel/Netlify (optional)
-
----
-
 ## ✨ Features
 
 - 🎡 **Experience Sections** – Explore rides, attractions, and activities
