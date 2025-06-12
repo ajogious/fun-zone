@@ -1,3 +1,6 @@
+import { motion } from "framer-motion";
+import "./Home.css";
+
 const Home = () => {
   const imageMap = {
     Experience: "thrill-ride.jpg",
@@ -8,32 +11,44 @@ const Home = () => {
     "Business Opportunities": "partnership.jpg",
   };
 
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.1, duration: 0.4, ease: "easeOut" },
+    }),
+  };
+
   return (
     <>
       {/* Hero Section */}
-      <div className="text-white text-center py-5 mb-4">
+      <motion.div
+        className="text-white text-center py-5 mb-4"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         <div className="container">
           <img
-            src="/assets/hero-banner.jpg"
+            src="/assets/home/hero-banner.jpg"
             alt="Fun Zone Entrance"
-            className="img-fluid mb-3"
-            style={{
-              maxHeight: "400px",
-              width: "100%",
-              objectFit: "cover",
-              borderRadius: "12px",
-              boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
-            }}
+            className="img-fluid mb-3 rounded-4 hero-img"
             loading="lazy"
           />
           <p className="lead fs-4 text-dark">
             Where Adventure Meets Imagination
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Welcome Message */}
-      <div className="container mb-5">
+      <motion.div
+        className="container mb-5"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+      >
         <h2 className="mb-4 text-center text-primary">Welcome to FUN ZONE</h2>
         <p className="text-center">
           Whether you're a thrill-seeker or simply want a relaxing day with
@@ -41,7 +56,7 @@ const Home = () => {
           internationally themed zones, dine at world-class outlets, meet your
           favorite park characters, and discover endless entertainment.
         </p>
-      </div>
+      </motion.div>
 
       {/* Section Previews */}
       <div className="container mb-5">
@@ -53,27 +68,25 @@ const Home = () => {
             { title: "What's Up", path: "/whats-up" },
             { title: "Park Info", path: "/info" },
             { title: "Business Opportunities", path: "/business" },
-          ].map(({ title, path }) => (
-            <div className="col-md-4" key={title}>
-              <div className="card h-100 shadow-sm rounded-4">
+          ].map(({ title, path }, i) => (
+            <motion.div
+              className="col-md-4"
+              key={title}
+              custom={i}
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.div
+                className="card h-100 shadow-sm rounded-4 card-hover"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 <img
-                  src={`/assets/${imageMap[title]}`}
+                  src={`/assets/home/${imageMap[title]}`}
                   alt={title}
                   className="card-img-top"
-                  style={{
-                    height: "180px",
-                    objectFit: "cover",
-                    borderTopLeftRadius: "0.75rem",
-                    borderTopRightRadius: "0.75rem",
-                    transition: "transform 0.3s ease-in-out",
-                  }}
                   loading="lazy"
-                  onMouseOver={(e) =>
-                    (e.currentTarget.style.transform = "scale(1.05)")
-                  }
-                  onMouseOut={(e) =>
-                    (e.currentTarget.style.transform = "scale(1)")
-                  }
                 />
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{title}</h5>
@@ -84,8 +97,8 @@ const Home = () => {
                     Explore
                   </a>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>

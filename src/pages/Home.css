@@ -1,0 +1,24 @@
+.hero-img {
+  max-height: 400px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.card-hover img {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.card-hover img:hover {
+  transform: scale(1.05);
+}
+
+.card-hover .card-body {
+  transition: background-color 0.3s;
+}
